@@ -1,7 +1,7 @@
 -- Set <space> as the leader key
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Make line numbers default
 vim.opt.number = true
@@ -20,22 +20,18 @@ vim.opt.number = true
 
 
 -- Lazy package manager
-local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   -- bootstrap lazy.nvim
   -- stylua: ignore
-  vim.fn.system({ 'git', 'clone', '--filter=blob:none', 'https://github.com/folke/lazy.nvim.git', '--branch=stable', lazypath })
+  vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath })
 end
 vim.opt.rtp:prepend(lazypath)
 
 -- Load plugins
-require("lazy").setup('dajaaagh.plugins')
--- require("lazy").setup(require('dajaaagh.lazy'))
--- vim.cmd('colorscheme rose-pine')
+require("lazy").setup("dajaaagh.plugins")
+vim.cmd("colorscheme rose-pine")
 
--- comfig plugins
--- require('dajaaagh.plugins')
-
--- require('dajaaagh.remap')
+require("dajaaagh.remap")
 
